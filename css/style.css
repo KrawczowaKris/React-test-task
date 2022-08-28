@@ -1,0 +1,163 @@
+body {
+  width: 100%;
+  min-height: 594px;
+  margin: 0;
+  padding: 0;
+
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'Roboto', sans-serif;
+  color: #000000;
+  background: url("../img/main.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+h1 {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 65px;
+  line-height: 100%;
+  color: #6C8474;
+  padding-bottom: 96px;
+}
+
+.button {
+  position: relative;
+  cursor: pointer;
+  display: block;
+  width: 332px;
+  height: 86px;
+  margin: 0 auto;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  text-decoration: none;
+  text-transform: none;
+  text-align: center;
+  color: #F3F3F3;
+  background-color: #6C8474;
+  border: none;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.28);
+  border-radius: 54.5px;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.columns-container {
+  display: flex;
+  justify-content: center;
+}
+
+.columns-container .left-column {
+  width: 671px;
+  margin-top: 152px;
+  text-align: center;
+}
+
+.columns-container .right-column {
+  width: 480px;
+  margin-top: 122px;
+  margin-left: 147px;
+}
+
+.popup {
+  display: none; 
+  position: absolute;
+  width: 759px;
+  height: 520px;
+  top: 29px;
+  left: 341px;
+  border-radius: 19px;
+  background-color: #FFFFFF;
+  opacity: 0;
+  animation: anim 0.6s forwards;
+}
+
+@keyframes anim {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.header {
+  font-size: 28px;
+  line-height: 32.81px;
+  text-align: center;
+  margin-bottom: 74px;
+  margin-top: 70px;
+}
+
+.name, .email {
+  box-sizing: border-box;
+  font-size: 20px;
+  text-indent: 23px;
+  width: 601px;
+  height: 54px;
+  border: 1px solid #C3C3C3;
+  border-radius: 15px;
+  background-color: #F9F9F9;
+  display: inline-block;
+  margin-left: 79px;
+  outline: none;
+}
+
+.name {
+  margin-bottom: 44px;
+}
+
+.button_submit {
+  box-sizing: border-box;
+  position: absolute;
+  width: 227px;
+  height: 58px;
+  top: 401px;
+  left: 266px;
+  background-color: #6C8474;
+  border-radius: 54.5px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.28);
+  border: 0px;
+  color: #F3F3F3;
+  font-size: 20px;
+}
+
+.button_submit:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.warning {
+  display: none;
+  font-size: 18px;
+  color: red;
+  font-style: italic;
+  margin-top: 17px;
+  margin-left: 85px;
+}
+
+.success, .lost {
+  position: absolute;
+  left: 430px;
+  top: 510px;
+  width: 501px;
+  height: 50px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.success {
+  display: none; 
+  color: green;
+}
+
+.lost {
+  display: none; 
+  color: red;
+}
