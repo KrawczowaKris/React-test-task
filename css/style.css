@@ -150,6 +150,14 @@ h1 {
   height: 50px;
   font-size: 22px;
   font-weight: 700;
+  animation: animat 3s forwards;
+}
+
+@keyframes animat {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.8; }
+  100% { opacity: 0; }
 }
 
 .success {

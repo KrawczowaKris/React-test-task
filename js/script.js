@@ -8,6 +8,8 @@ var nameUser = document.querySelector('.name');
 var emailUser = document.querySelector('.email')
 var buttonSubmitForm = document.querySelector('.button_submit');
 var warning = document.querySelector('.warning');
+var success = document.querySelector('.success');
+var lost = document.querySelector('.lost');
 
 // Появление модального окна
 buttonOpenForm.onclick = function() {
@@ -20,6 +22,8 @@ window.onkeydown = function(evt) {
         columnsContainer.style.opacity = "1";
         request.style.display = "none";
         warning.style.display = "none";
+        nameUser.value = "";
+        emailUser.value = "";
     }
 };
 
@@ -58,8 +62,46 @@ buttonSubmitForm.onclick = function(evt) {
     evt.preventDefault();
 
     if (nameUser.style.borderColor === "green" && emailUser.style.borderColor === "green") {
-        console.log(1);
+        var xhr = new XMLHttpRequest();
+        var url = "https://jsonplaceholder.typicode.com/users";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.onreadystatechange = function () {
+            var arrayOfXhrStatus = xhr.status;
+            if (arrayOfXhrStatus == 0) {
+                lost.style.display = "block";
+                setTimeout (function() {
+                    lost.style.display = 'none';
+                }, 3000);
+            } else {
+                nameUser.value = "";
+                emailUser.value = "";
+                success.style.display = "block";
+                setTimeout (function() {
+                    success.style.display = 'none';
+                }, 3000);
+                
+            }
+          };
+        var data = JSON.stringify({"name": nameUser.value, "email": emailUser.value});
+        //console.log(data);
+        xhr.send(data);
+
+
+        // if (xhr.status === 0) {
+        //     lost.style.display = "block";
+        // } else {
+        //     var data = JSON.stringify({"name": nameUser.value, "email": emailUser.value});
+        //     xhr.send(data);
+        //     success.style.display = "block";
+        // }
+
+
     } else {
         warning.style.display = "block";
     }
+}
+
+function sendData() {
+
 }
