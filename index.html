@@ -1,52 +1,49 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang='ru'>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset='UTF-8'>
     <title>Create Studio</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:weght@400;700&display=swap" rel="stylesheet"> -->
+    <link rel='stylesheet' href='css/style.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <!-- отключила пока, чтобы ошибок не было -->
+    <!-- <link href='https://fonts.googleapis.com/css2?family=Roboto:weght@400;700&display=swap' rel='stylesheet'> -->
 </head>
 
 <body>
     <main>
-            <div class="container">
-              <div class="columns-container">
-                <div class="left-column">
+            <div class='container'>
+              <div class='columns-container'>
+                <div class='left-column'>
                   <h1>Мастер-классы<br> от Create Studio</h1>
-                  <button type="submit" class="button" id="myBtn">Записаться</button>
+                  <button type='submit' class='button' id='myBtn'>Записаться</button>
                 </div>
-                <div class="right-column">
-                    <img src="img/office.png" alt="Фотография офиса" width="552" height="376">
+                <div class='right-column'>
+                    <img src='img/office.png' alt='Фотография офиса' width='552' height='376'>
                 </div>
               </div>
 
-              <div id="request" class="popup">
-                <h3 class="header">Заявка на участие</h3>
-                <form action="https://jsonplaceholder.typicode.com/users" method="post" enctype="multipart/form-data">
+              <div id='request' class='popup'>
+                <h3 class='header'>Заявка на участие</h3>
+                <form action='https://jsonplaceholder.typicode.com/users' method='post' enctype='multipart/form-data'>
                   <div>
-                   <input type="text" name="name" class="name" placeholder="ФИО" tabindex="1">
+                   <input type='text' name='name' class='name' placeholder='ФИО' tabindex='1'>
                   </div>
                   <div>
-                    <input type="email" name="email" class="email" placeholder="E-mail" tabindex="2">
+                    <input type='email' name='email' class='email' placeholder='E-mail' tabindex='2'>
                   </div>
-                  <div class="warning">Одно или несколько полей содержат ошибочные данные</div>
+                  <div class='warning'>Одно или несколько полей содержат ошибочные данные</div>
                   <div>
-                    <button type="submit" class="button_submit" tabindex="3">Отправить</button>
+                    <button type='submit' class='button_submit' tabindex='3'>Отправить</button>
                   </div>
                 </form>
               </div>
-              <div class="success">
-                Форма успешно отправлена!
-              </div>
-              <div class="lost">
-                При отправке данных произошла ошибка
-              </div>
+              <div class='success'>Форма успешно отправлена!</div>
+              <div class='lost'>При отправке данных произошла ошибка</div>
             </div>
     </main>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type='text/javascript' src='js/script.js'></script>
 </body>
 
 </html>
