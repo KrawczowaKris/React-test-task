@@ -1,9 +1,9 @@
 const VALID_EMAIL = /^(([^<>()[\].,;:\s@']+(\.[^<>()[\].,;:\s@']+)*)|('.+'))@(([^<>()[\].,;:\s@']+\.)+[^<>()[\].,;:\s@']{2,})$/iu;
 const VALID_NAME = /^[А-ЯЁа-яё ]+$/;
 
+var columnsContainer = document.querySelector('.columns-container');
 var buttonOpenForm = document.getElementById('myBtn');
 var request = document.getElementById('request');
-var columnsContainer = document.querySelector('.columns-container');
 var nameUser = document.querySelector('.name');
 var emailUser = document.querySelector('.email')
 var buttonSubmitForm = document.querySelector('.button_submit');
@@ -24,6 +24,8 @@ window.onkeydown = function(evt) {
         warning.style.display = 'none';
         nameUser.value = '';
         emailUser.value = '';
+        nameUser.style.borderColor = '#C3C3C3';
+        emailUser.style.borderColor = '#C3C3C3';
     }
 };
 
@@ -31,22 +33,14 @@ window.onkeydown = function(evt) {
 nameUser.addEventListener('input', addBacklightName);
 emailUser.addEventListener('input', addBacklightEmail);
 
-function addBacklightName() {
-    if (VALID_NAME.test(nameUser.value) && nameUser.value.split(' ').join('').length >= 2) {
-        nameUser.style.borderColor = 'green';
-        warning.style.display = 'none';
-    } else {
-        nameUser.style.borderColor = 'red';
-    }
-}
+function addBacklightName() { addBacklightArea(VALID_NAME.test(nameUser.value) && nameUser.value.split(' ').join('').length >= 2, nameUser); }
+function addBacklightEmail() { addBacklightArea(VALID_EMAIL.test(emailUser.value), emailUser); }
 
-function addBacklightEmail() {
-    if (VALID_EMAIL.test(emailUser.value)) {
-        emailUser.style.borderColor = 'green';
+function addBacklightArea(condition, nameArea) {
+    if (condition) {
+        nameArea.style.borderColor = 'green';
         warning.style.display = 'none';
-    } else {
-        emailUser.style.borderColor = 'red';
-    }
+    } else nameArea.style.borderColor = 'red';
 }
 
 // Отправка формы
@@ -59,18 +53,11 @@ buttonSubmitForm.onclick = function(evt) {
         xhr.open('POST', url, true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.onreadystatechange = function () {
-            if (xhr.status == 0) {
-                lost.style.display = 'block';
-                setTimeout (function() {
-                    lost.style.display = 'none';
-                }, 3000);
-            } else {
+            if (xhr.status == 0) timer(lost);
+            else {
                 nameUser.value = '';
                 emailUser.value = '';
-                success.style.display = 'block';
-                setTimeout (function() {
-                    success.style.display = 'none';
-                }, 3000);           
+                timer(success);         
             }
           };
         var data = JSON.stringify({'name': nameUser.value, 'email': emailUser.value});
@@ -80,7 +67,7 @@ buttonSubmitForm.onclick = function(evt) {
     }
 }
 
-function sendData() {
-
+function timer(message) {
+    message.style.display = 'block';
+    setTimeout (function() { message.style.display = 'none'; }, 3000);
 }
-//108
